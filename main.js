@@ -1,13 +1,27 @@
 //Calcular el precio del producto en cuotas
 
-//Variables:
+//Creamos clases:
 
+class Clientes {
+    constructor(nombre, apellido,cuotas,precioFinal){
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.cuotas = cuotas;
+        this.precioFinal = precioFinal;
+        
+    }
+
+};
+//Variables:
 
 let cantidadDeCuotas = 0;
 let costoTotalCarrito = 0;
 let costoTotalCarritoLleno = 0;
 let agregarProducto = true;
-
+let nombre = prompt("Coloque su Nombre")
+let apellido = prompt("Coloque se Apellido")
+let cuotas = cantidadDeCuotas
+let precioFinal = costoTotalCarritoLleno
 
 // Calculamos las coutas
 
@@ -43,3 +57,6 @@ while (agregarProducto){
 
 alert ("El costo total del Carrito es de $: " + costoTotalCarritoLleno)
 
+const clientes = new Clientes(nombre, apellido, cuotas, precioFinal);
+
+console.log(clientes)
