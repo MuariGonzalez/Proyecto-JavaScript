@@ -3,23 +3,34 @@
 //Creamos clases:
 
 class Clientes {
-    constructor(nombre, apellido,cuotas,precioFinal){
+    constructor(nombre, apellido,){
         this.nombre = nombre;
         this.apellido = apellido;
-        this.cuotas = cuotas;
-        this.precioFinal = precioFinal;
-        
     }
 
 };
-//Variables:
 
+//Variables:
+const arrayClientes = [ ]
 let cantidadDeCuotas = 0;
 let costoTotalCarrito = 0;
 let costoTotalCarritoLleno = 0;
 let agregarProducto = true;
-let nombre = prompt("Coloque su Nombre")
-let apellido = prompt("Coloque se Apellido")
+const formulario = document.getElementById("formulario");
+formulario.addEventListener("submit",(e)=> {
+   //Evitamos el comportamiento por default del formulario
+    e.preventDefault();
+    //Tomamos los datos del formulario
+    const nombre = document.getElementById("nombre");
+    const apellido = document.getElementById("apellido");
+    //Nuevo objeto
+    const cliente = new Clientes(nombre.value, apellido.value)
+    //pusheamos
+    arrayClientes.push(cliente)
+    //reseteamos formulario
+    formulario.reset()
+    console.log(arrayClientes)
+})
 let cuotas = cantidadDeCuotas
 let precioFinal = costoTotalCarritoLleno
 
@@ -57,6 +68,5 @@ while (agregarProducto){
 
 alert ("El costo total del Carrito es de $: " + costoTotalCarritoLleno)
 
-const clientes = new Clientes(nombre, apellido, cuotas, precioFinal);
-
-console.log(clientes)
+const mauricio = arrayClientes.some(item => item.nombre === "Mauricio")
+console.log(mauricio)
