@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/estilo.css/estilo.css">
+    <link rel="stylesheet" href="./estilo.css/estilo.css">
 </head>
 
 <body>
@@ -27,13 +27,13 @@
             <input type="Precio Producto" id="precioProducto" required>
         </div>
         <div>
-            <select class="form-select" aria-label="Default select example" id="seleccionarCuotas">
+            <select id="seleccionarCuotas">
                 <option selected >Seleccione la cantidad de cuotas</option>
-                <option value="1">1</option>
-                <option value="3">3</option>
-                <option value="6">6</option>
-                <option value="9">9</option>
-                <option value="12">12</option>
+                <option value="1">1 cuota</option>
+                <option value="3">3 cuotas</option>
+                <option value="6">6 cuotas</option>
+                <option value="9">9 cuotas</option>
+                <option value="12">12 cuotas</option>
             </select>
         </div>
         <div>
@@ -44,9 +44,10 @@
 
     </form>
 
-    
+    <div id="contenedor"></div>
+    <div id="resultado"></div>
 
-    <script src="/main.js"></script>
+    <script src="main.js"></script>
 </body>
 
 </html>

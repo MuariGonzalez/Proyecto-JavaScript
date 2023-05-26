@@ -54,11 +54,17 @@ button:hover {
     background-color: #555;
 }
 
-.resultado{
-    width: 100%;
+.nuevo-div {
+    background-color: lightblue;
     padding: 10px;
-    border-radius: 3px;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
     margin-bottom: 10px;
+    height: 40px;
+}
+
+#resultado {
+    height: 40px;
+}
+
+#contenedor {
+    height: 40px;
 }
