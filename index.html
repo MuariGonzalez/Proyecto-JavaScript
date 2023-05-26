@@ -1,27 +1,52 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/estilo.css/estilo.css">
 </head>
+
 <body>
-    <h1>Primer Pre Entrega</h1>
+    <h1>Tercer Pre Entrega</h1>
     <p>En el Proyecto se calcula el precio de un producto en base a la cantidad de cuotas seleccionadas</p>
 
     <form id="formulario">
-        <label for="nombre">Nombre</label>
-        <input type="Nombre" id="nombre">
-        <br></br>
-        <label for="apellido">Apellido</label>
-        <input type="Apellido" id="apellido">
+        <div>
+            <label for="nombre">Nombre</label>
+            <input type="Nombre" id="nombre" required>
+        </div>
+        <div>
+            <label for="apellido">Apellido</label>
+            <input type="Apellido" id="apellido" required>
+        </div>
+        <div>
+            <label for="precioProducto">Precio Producto</label>
+            <input type="Precio Producto" id="precioProducto" required>
+        </div>
+        <div>
+            <select class="form-select" aria-label="Default select example" id="seleccionarCuotas">
+                <option selected >Seleccione la cantidad de cuotas</option>
+                <option value="1">1</option>
+                <option value="3">3</option>
+                <option value="6">6</option>
+                <option value="9">9</option>
+                <option value="12">12</option>
+            </select>
+        </div>
+        <div>
+            <button id="boton">
+                Aceptar
+            </button>
+        </div>
 
-        <button>
-            Aceptar
-        </button>
     </form>
+
+    
 
     <script src="/main.js"></script>
 </body>
+
 </html>

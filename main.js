@@ -1,72 +1,62 @@
-//Calcular el precio del producto en cuotas
-
 //Creamos clases:
-
 class Clientes {
-    constructor(nombre, apellido,){
+    constructor(nombre, apellido, precio, cantidadDeCuotas) {
         this.nombre = nombre;
         this.apellido = apellido;
+        this.precio = precio;
+        this.cantidadDeCuotas = cantidadDeCuotas;
     }
-
-};
+}
 
 //Variables:
-const arrayClientes = [ ]
-let cantidadDeCuotas = 0;
-let costoTotalCarrito = 0;
-let costoTotalCarritoLleno = 0;
-let agregarProducto = true;
+const arrayClientes = [];
+let costoCarrito = 0;
+const resultadoDiv = document.getElementById("resultado");
+const boton = document.getElementById("boton");
+
+//Formulario
 const formulario = document.getElementById("formulario");
-formulario.addEventListener("submit",(e)=> {
-   //Evitamos el comportamiento por default del formulario
+formulario.addEventListener("submit", (e) => {
+    //Evitamos el comportamiento por defecto del formulario
     e.preventDefault();
+    
     //Tomamos los datos del formulario
     const nombre = document.getElementById("nombre");
     const apellido = document.getElementById("apellido");
-    //Nuevo objeto
-    const cliente = new Clientes(nombre.value, apellido.value)
-    //pusheamos
-    arrayClientes.push(cliente)
-    //reseteamos formulario
-    formulario.reset()
-    console.log(arrayClientes)
-})
-let cuotas = cantidadDeCuotas
-let precioFinal = costoTotalCarritoLleno
-
-// Calculamos las coutas
-
-function calcular() {
-    let precioProducto = parseFloat(prompt("Ingrese el precio del producto"));cantidadDeCuotas = parseInt(prompt("Ingrese la cantidad de cuotas: 1, 3 ,6 ,9 ,12"));
+    const precioProducto = parseInt(document.getElementById("precioProducto").value);
+    const seleccionarCuotas = parseInt(document.getElementById("seleccionarCuotas").value);
     
-    while (cantidadDeCuotas !== 1 && cantidadDeCuotas !== 3 && cantidadDeCuotas !== 6 && cantidadDeCuotas !== 9 && cantidadDeCuotas !== 12) {
-        alert("Colocar la cantidad de cuotas especificadas");
-        cantidadDeCuotas = parseInt(prompt("Ingrese la cantidad de cuotas (1, 3 ,6 ,9 ,12)"));
+    //Nuevo objeto
+    const cliente = new Clientes(nombre.value, apellido.value, precioProducto, seleccionarCuotas);
+    
+    //pusheamos
+    arrayClientes.push(cliente);
+    
+    //reseteamos formulario
+    formulario.reset();
+    
+    console.log(arrayClientes);
+});
+
+// Calculamos las cuotas
+boton.onclick = function() {
+    const cliente = arrayClientes[arrayClientes.length - 1];
+    
+    if (cliente.cantidadDeCuotas === 1) {
+        costoCarrito = cliente.precio;
+    } else if (cliente.cantidadDeCuotas === 3) {
+        costoCarrito = cliente.precio * 1.2;
+    } else if (cliente.cantidadDeCuotas === 6) {
+        costoCarrito = cliente.precio * 1.35;
+    } else if (cliente.cantidadDeCuotas === 9) {
+        costoCarrito = cliente.precio * 1.5;
+    } else if (cliente.cantidadDeCuotas === 12) {
+        costoCarrito = cliente.precio * 1.7;
     }
-
-    if (cantidadDeCuotas === 1) {
-        costoTotalCarrito = precioProducto;
-    } else if (cantidadDeCuotas === 3) {
-        costoTotalCarrito = precioProducto * 1.2;
-    } else if (cantidadDeCuotas === 6) {
-        costoTotalCarrito = precioProducto * 1.35;
-    } else if (cantidadDeCuotas === 9) {
-        costoTotalCarrito = precioProducto * 1.5;
-    } else if (cantidadDeCuotas === 12) {
-        costoTotalCarrito = precioProducto * 1.7;
-    }
-
-
-    alert("El costo total del Carrito en " + cantidadDeCuotas + " cuotas es de: $ " + costoTotalCarrito)
+    
+    resultadoDiv.innerHTML = `<div class="resultado">El costo de su producto es de $ ${costoCarrito}</div>`;
 }
 
-while (agregarProducto){
-    calcular();
-    costoTotalCarritoLleno = costoTotalCarritoLleno + costoTotalCarrito;
-    agregarProducto = confirm ("¿Agregamos otro producto?")
-}
+const mauricio = arrayClientes.some(item => item.nombre === "Mauricio");
+console.log(mauricio);
 
-alert ("El costo total del Carrito es de $: " + costoTotalCarritoLleno)
-
-const mauricio = arrayClientes.some(item => item.nombre === "Mauricio")
-console.log(mauricio)
